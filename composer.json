@@ -1,0 +1,20 @@
+{
+    "name": "poupouxios/facade-api",
+    "description": "A custom facade to make various different calls to the API",
+    "homepage": "https://github.com/poupouxios/facade-api",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Valentinos Papasavvas",
+            "email": "vpapasavvas@gmail.com"
+        }
+    ],
+    "require": {
+        "illuminate/http": "5.3.*",
+        "illuminate/support": "5.3.*",
+        "guzzlehttp/guzzle": "~6.2"
+    },
+    "autoload": {
+        "psr-4": {"FacadeApi\\": "src/FacadeApi"}
+    }
+}
