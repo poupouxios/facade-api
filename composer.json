@@ -10,8 +10,8 @@
         }
     ],
     "require": {
-        "illuminate/http": "5.3.*",
-        "illuminate/support": "5.3.*",
+        "illuminate/http": "~5.3",
+        "illuminate/support": "~5.3",
         "guzzlehttp/guzzle": "~6.2"
     },
     "autoload": {
