@@ -51,7 +51,7 @@ This package is responsible to simplify the calls to the API by hiding the compl
 * In your `bootstrap\app.php` append the below lines under the providers section:
 ```
 ...
-  $app->register(FacadeApi\Providers\LaravelServiceProvider::class);
+  $app->register(FacadeApi\Providers\LumenServiceProvider::class);
   $app->register(FacadeApi\Providers\ApiWrapperServiceProvider::class);
 ...
 ```
