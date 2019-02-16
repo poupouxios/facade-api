@@ -6,6 +6,7 @@ use GuzzleHttp\Client;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\Exception\ClientException;
 use FacadeApi\Interfaces\ClientHandlerInterface;
+use Illuminate\Support\Facades\Config;
 
 class GuzzleApiHandler implements ClientHandlerInterface{
 
@@ -27,7 +28,7 @@ class GuzzleApiHandler implements ClientHandlerInterface{
         {
             $this->prepareClient();
             $response = $this->client->request('POST',$this->route,[
-              "form_params" => $this->data
+                "form_params" => $this->data
             ]);
             return json_decode($response->getBody());
         } catch (ClientException $e) {
@@ -43,7 +44,7 @@ class GuzzleApiHandler implements ClientHandlerInterface{
         {
             $this->prepareClient();
             $response = $this->client->request('PUT',$this->route,[
-              "form_params" => $this->data
+                "form_params" => $this->data
             ]);
             return json_decode($response->getBody());
         } catch (ClientException $e) {
@@ -59,7 +60,7 @@ class GuzzleApiHandler implements ClientHandlerInterface{
         {
             $this->prepareClient();
             $response = $this->client->request('GET',$this->route,
-              ['query' => $this->data]
+                ['query' => $this->data]
             );
             return json_decode($response->getBody());
         } catch (ClientException $e) {
@@ -75,7 +76,7 @@ class GuzzleApiHandler implements ClientHandlerInterface{
         {
             $this->prepareClient();
             $response = $this->client->request('DELETE',$this->route,[
-              "json" => $this->data
+                "json" => $this->data
             ]);
             return json_decode($response->getBody());
         } catch (ClientException $e) {
@@ -88,8 +89,8 @@ class GuzzleApiHandler implements ClientHandlerInterface{
     private function prepareClient()
     {
         $this->client = new Client([
-          'base_uri' => \Config::get("facadeapi.api_container_name"),
-          'headers' => $this->headers
+            'base_uri' => Config::get("facadeapi.api_container_name"),
+            'headers' => $this->headers
         ]);
         if($this->route[0] != "/")
         {
@@ -98,5 +99,3 @@ class GuzzleApiHandler implements ClientHandlerInterface{
     }
 
 }
-
-?>
